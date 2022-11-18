@@ -72,4 +72,6 @@ class Order(models.Model):
     date = models.DateField(default=datetime.datetime.today)
 
 
-   
+    @staticmethod
+    def get_products_by_name(ids):
+        return Order.objects.filter(customer = Customer(id=ids))

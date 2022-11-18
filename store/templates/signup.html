@@ -8,27 +8,33 @@
             <h3 class="alert alert-light border rounded " >create an account</h3>
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
+                <!-- error -->
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+                {% endif %}
                 <!-- firstname -->
                 <div class="form-group">
-                    <label for="{{forloop.counter}}" >First Name</label>
-                    <input type="text" name="firstname" class="form-control form-control-sm" id="{{forloop.counter}}" placeholder="">
+                    <label for="1" >First Name</label>
+                    <input type="text" name="firstname" class="form-control form-control-sm" id="1" value="{{values.first_name}}" placeholder="">
                 </div>
                 <!-- last name -->
                 <div class="form-group">
-                    <label for="{{forloop.counter}}" >Last Name</label>
-                    <input type="text" name="lastname" class="form-control form-control-sm" id="{{forloop.counter}}" placeholder="">
+                    <label for="2" >Last Name</label>
+                    <input type="text" name="lastname" class="form-control form-control-sm" id="2" value="{{values.last_name}}" placeholder="">
                 </div>
                 <!-- phone -->
                 <div class="form-group">
-                    <label for="{{forloop.counter}}" >Phone no : </label>
-                    <input type="text" name="phoneno" class="form-control form-control-sm" id="{{forloop.counter}}" placeholder="">
+                    <label for="3" >Phone no : </label>
+                    <input type="text" name="phoneno" class="form-control form-control-sm" id="3" value="{{values.phoneno}}" placeholder="">
                 </div>
 
 
                 <!-- email -->
                 <div class="form-group">
-                        <label for="{{forloop.counter}}" >Email</label>
-                        <input type="email" name="email" class="form-control form-control-sm" id="{{forloop.counter}}" placeholder="name@example.com">
+                        <label for="4" >Email</label>
+                        <input type="email" name="email" class="form-control form-control-sm" id="4" value="{{values.email}}" placeholder="name@example.com">
                 </div>
                 <!-- password -->
                 <div class="form-group">

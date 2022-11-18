@@ -20,13 +20,17 @@ from store import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('', views.Index.as_view(), name="home"),
     path('home/', views.Index.as_view(), name="home"),
     path('signup/', views.signup, name="signup"),
     path('login/', views.Login, name="login"),
     path('logout/', views.Logout, name="logout"),
+
     path('cart/', views.Cart.as_view(), name="cart"),
+    
+    path('orders/', views.orders, name="orders"),
     path('checkout/', views.checkout, name="checkout"),
     path('payment/<id>', views.payment, name="payment"),   
 

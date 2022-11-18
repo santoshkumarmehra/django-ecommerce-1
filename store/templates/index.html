@@ -37,17 +37,17 @@
                     <div class="card-footer no-gutters">
                         {% if product|is_in_cart:request.session.cart %}
                             <!-- footer -->
-                            <div class="row">
-                                <form action="/" class="col-2" method="post">
+                            <div class="row ">
+                                <form action="/" class="col-lg-2" method="post">
                                     {% csrf_token %}
                                     <input hidden type="number" name="product" value="{{product.id}}">
                                     <input hidden type="text" name="remove" value="True">
                                     <input type="submit" value=" - " class="btn btn-block btn-danger ">
                                 </form>
-                                <div class="text-center col">
-                                    {{product | cart_quantity:request.session.cart}} in cart
+                                <div class="text-center col-lg-8">
+                                    <input type="text" name="quantityvalue" value="{{product | cart_quantity:request.session.cart}}" style="width:50px ;"> in cart
                                 </div>
-                                <form action="/" class="col-2" method="post">
+                                <form action="/" class="col-lg-2" method="post">
                                     {% csrf_token %}
                                     <input hidden type="text" name="product" value="{{product.id}}">
                                     <input type="submit" value=" + " class="btn btn-block btn-danger ">
@@ -57,6 +57,7 @@
                             <!-- form to add -->
                             <form action="/" method="post" class="btn-block text-center">
                                 {% csrf_token %}
+                                <input hidden type="text" name="quantityvalue" value="{{product | cart_quantity:request.session.cart}}">
                                 <input hidden type="text" name="product" value="{{product.id}}">
                                 <input type="submit" value="Add to Cart" class="btn btn-info btn-block text-center">                            
                             </form>
